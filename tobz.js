@@ -2731,9 +2731,10 @@ ${desc}`)
             await limitAdd(serial)
             if (args.length === 1) return tobz.reply(from, 'Kirim perintah *${prefix}mock [text]*\nContoh : *${prefix}mock anjay*', id)
             const qwer = body.slice(6)
-            const resp = await axios.get('https://arugaz.herokuapp.com/api/bapakfont?kata=${qwer})
-            const mock1 = `➸  ${resp.data.result} `
-            tobz.reply(from, mock1, id)
+            axios.get('https://arugaz.herokuapp.com/api/bapakfont?kata=${qwer})
+            .then((res) => {
+                let hasil = `${res.data.result}`
+                tobz.reply(from, hasil, id)
            break
         case prefix+'caklontong':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
@@ -3616,7 +3617,7 @@ ${desc}`)
             })
             break
         case prefix+'whipped':
-	        if (args.length === 1) return tobz.reply(from, `Untuk mengetahui seberapa gay seseorang gunakan ${prefix}howgay namanya\n\nContoh: ${prefix}howgay burhan`, id)
+	        if (args.length === 1) return tobz.reply(from, `Untuk mengetahui seberapa bucin seseorang gunakan ${prefix}whipped namanya\n\nContoh: ${prefix}whipped burhan`, id)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             
             axios.get(`https://arugaz.herokuapp.com/api/howbucins`)
