@@ -1467,7 +1467,7 @@ ${desc}`)
             break
         case prefix+`waifu`:
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
-            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik @limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             
             await limitAdd(serial)
             const waifu = await axios.get('https://mhankbarbar.herokuapp.com/api/waifu' + '?apiKey=' + barbarkey)
@@ -1475,7 +1475,7 @@ ${desc}`)
             break
         case prefix+`husbu`:
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
-            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik @limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             
             await limitAdd(serial)
             const diti = fs.readFileSync('./lib/database/husbu.json')
@@ -1486,7 +1486,7 @@ ${desc}`)
             break
         case prefix+`randomnekonime`:
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
-            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik @limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             
             await limitAdd(serial)
             const nekonime = await axios.get(`https://api.vhtear.com/randomnekonime&apikey=${vhtearkey}`)
@@ -1561,7 +1561,7 @@ ${desc}`)
             break
         case prefix+`randomanime`:
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
-            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik @limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             
             await limitAdd(serial)
             const ranime = await axios.get('https://api.computerfreaker.cf/v1/anime')
@@ -2730,8 +2730,9 @@ ${desc}`)
             
             await limitAdd(serial)
             if (args.length === 1) return tobz.reply(from, 'Kirim perintah * ${prefix}mock [text]*\nContoh : * ${prefix}mock anjay*', id)
-            const resp = await axios.get('https://arugaz.herokuapp.com/api/bapakfont?kata=' + body.slice(6) + ')
-            const mock1 = `➸  ${resp.data.result} `
+            const qwer = body.slice(6)
+            const resp = await axios.get('https://arugaz.herokuapp.com/api/bapakfont?kata=${qwer})
+            const mock1 = `➸  ${resp.data.result} `;
             tobz.reply(from, mock1, id)
            break
         case prefix+'caklontong':
