@@ -2724,7 +2724,7 @@ ${desc}`)
                 tobz.sendText(ownerNumber, 'Zodiak Error : ' + err)
            }
            break
-        case prefix+'mock':
+        /*case prefix+'mock':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             
@@ -2734,7 +2734,7 @@ ${desc}`)
             const resp = await axios.get('https://arugaz.herokuapp.com/api/bapakfont?kata=${qwer})
             const mock1 = `➸  ${resp.data.result} `;
             tobz.reply(from, mock1, id)
-           break
+           break*/
         case prefix+'caklontong':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
