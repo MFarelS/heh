@@ -3600,7 +3600,7 @@ ${desc}`)
         case prefix+'tagme':
             if(isLimit(serial)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
-            const slap = arg.split(' ')
+            const tagm = arg.split(' ')
             const person = author.replace('@c.us', '')
             tobz.sendTextWithMentions(from, '@' + person + ' *tagged* ' )
             limitAdd(serial)
