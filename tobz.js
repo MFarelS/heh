@@ -2724,7 +2724,7 @@ ${desc}`)
                 tobz.sendText(ownerNumber, 'Zodiak Error : ' + err)
            }
            break
-        case prefix+'mock':
+        /*case prefix+'mock':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             
@@ -2735,7 +2735,7 @@ ${desc}`)
             .then((res) => {
                 let hasil = `${res.data.result}`
                 tobz.reply(from, hasil, id)
-           break
+           break*/
         case prefix+'caklontong':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
