@@ -3601,8 +3601,8 @@ ${desc}`)
             if(isLimit(serial)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             const tagm = arg.split(' ')
-            const person = author.replace('@c.us', '')
-            tobz.sendTextWithMentions(from, '@' + person + ' *tagged* ' )
+            const persqw = author.replace('@c.us', '')
+            tobz.sendTextWithMentions(from, '@' + persqw + ' *tagged* ' + tagm)
             limitAdd(serial)
             break
         case prefix+'howgay':
