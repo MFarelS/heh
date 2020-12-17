@@ -1156,7 +1156,7 @@ module.exports = tobz = async (tobz, message) => {
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#romtext [ Teks ]*, contoh *#romtext gw dan owner*`, id)
             tobz.reply(from, mess.wait, id)
             const romte = body.slice(9)
-            if (partyy.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
+            if (romte.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/romancetext?text=${romte}&apikey=${vhtearkey}`, 'thndr.jpg', '', id)
             break
         case prefix+'pornhub':
@@ -4035,7 +4035,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const cerpen = await get.get('https://arugaz.herokuapp.com/api/cerpen').json()
+            const cerpen = await get.get('https://arugaz.herokuapp.com/api/cerpen').json
             tobz.reply(from, `• *Cerpen*: ${cerpen.data.result}`, id)
             break
         case prefix+'puisi': // ARUGAZ
@@ -4044,7 +4044,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
-            const puisi = await get.get('https://arugaz.herokuapp.com/api/puisi1').json()
+            const puisi = await get.get('https://arugaz.herokuapp.com/api/puisi1').json
             tobz.reply(from, `• *Puisi*: ${puisi.data.result}`, id)
             break
         case prefix+'puisi2': // ARUGAZ
@@ -4052,7 +4052,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const puisi2 = await get.get('https://arugaz.herokuapp.com/api/puisi2').json()
+            const puisi2 = await get.get('https://arugaz.herokuapp.com/api/puisi2').json
             tobz.reply(from, `• *Puisi*: ${puisi2.data.result}`, id)
             break
         case prefix+'puisi3': // ARUGAZ
@@ -4060,7 +4060,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const puisi3 = await get.get('https://arugaz.herokuapp.com/api/puisi3').json()
+            const puisi3 = await get.get('https://arugaz.herokuapp.com/api/puisi3').json
             tobz.reply(from, `• *Puisi*: ${puisi3.data.result}`, id)
             break
         case prefix+'cersex1': // ARUGAZ
@@ -4069,7 +4069,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const cersex1 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
+            const cersex1 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
             tobz.reply(from, `• *CERSEX*: ${cersex1.data.result.article}`, id)
             break
         case prefix+'cersex2': // ARUGAZ
@@ -4078,7 +4078,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const cersex2 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
+            const cersex2 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
             tobz.reply(from, `• *CERSEX*: ${cersex2.data.result.article}`, id)
             break
         case prefix+'indohot': // ARUGAZ
@@ -4087,7 +4087,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
+            const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
             tobz.reply(from, `• Judul = ${indohot.data.result.judul}\n Durasi = ${indohot.data.result.durasi}\n Country = ${indohot.data.result.country}\n Genre = ${indohot.data.result.genre}\n url download = ${indohot.data.result.url}`, id)
             break
         // ADMIN & OWNER
