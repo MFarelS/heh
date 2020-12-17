@@ -3266,7 +3266,7 @@ ${desc}`)
              tobz.sendText(ownerNumber, 'Sand Writing Error : ' + err)
            }
           break
-         case prefix+'wc': 
+         /*case prefix+'wc': 
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
@@ -3288,7 +3288,7 @@ ${desc}`)
              await tobz.sendFileFromUrl(from, errorurl2, 'error.png', '💔️ Maaf, User tidak ditemukan')
              tobz.sendText(ownerNumber, 'Water Colour Error : ' + err)
            }
-          break
+          break*/
          case prefix+'tahta':
              if(isReg(obj)) return
              if(cekumur(cekage)) return
