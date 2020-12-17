@@ -1168,12 +1168,12 @@ Total Pengguna yang telah terdaftar ${pendaftar.length}`)
                     if (!isAdmin) return tobz.reply(from, 'Command ini hanya dapat digunakan oleh admin Chika', id)  
                     const nomet = args[1]
                     let texta = nomet.replace(/[-\s+@c.us]/g,'')
-                    const cus = texta + '@c.us'
+                    const cusq = texta + '@c.us'
                     const umur = args[2]
                     if(umur >= 40) return await tobz.reply(from, 'Umur terlalu tua kak, max 40 yaa :D', id)
                         var found = false
                         Object.keys(pendaftar).forEach((i) => {
-                            if(pendaftar[i].id == cus){
+                            if(pendaftar[i].id == cusq){
                                 found = i
                             }
                         })
