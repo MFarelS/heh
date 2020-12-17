@@ -4751,16 +4751,15 @@ ${desc}`)
             tobz.reply(from, snk, id)
             break
         default:
-            //if (!isGroupMsg) return tobz.reply(from, 'Jika Ingin Menggunakan Bot Harap Masuk Ke Dalam Grup Chika, Link Ada Di Bio atau Bisa Mengetik #Chikagroup!\nJika Ingin Sewa Bot atau Bikin Bot Harap Ketik *#iklan*', id)
+            if (!isGroupMsg) return tobz.reply(from, 'Jika Ingin Menggunakan Bot Harap Masuk Ke Dalam Grup Chika, Link Ada Di Bio atau Bisa Mengetik ${prefix}chikagroup!\nJika Ingin Sewa Bot atau Bikin Bot Harap Ketik *${prefix}iklan*', id)
             if (command.startsWith('#')) {
-                tobz.reply(from, `Maaf ${pushname}, Command *${args[0]}* Tidak Terdaftar Di Dalam *#menu*!`, id)
+                tobz.reply(from, `Maaf ${pushname}, Command *${args[0]}* Tidak Terdaftar Di Dalam *${prefix}menu*!`, id)
             }
             await tobz.sendSeen(from) 
             }
         }
-    } catch (err)
+    } catch (err) {prefix+
         console.log(color('[ERROR]', 'red'), err)
         //tobz.kill().then(a => console.log(a))
     }
 }
-
