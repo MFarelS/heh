@@ -1167,8 +1167,8 @@ Total Pengguna yang telah terdaftar ${pendaftar.length}`)
             case prefix+'daftarulang':
                     if (!isAdmin) return tobz.reply(from, 'Command ini hanya dapat digunakan oleh admin Chika', id)  
                     const nomet = args[1]
-                    let text = nomet.replace(/[-\s+@c.us]/g,'')
-                    const cus = text + '@c.us'
+                    let texta = nomet.replace(/[-\s+@c.us]/g,'')
+                    const cus = texta + '@c.us'
                     const umur = args[2]
                     if(umur >= 40) return await tobz.reply(from, 'Umur terlalu tua kak, max 40 yaa :D', id)
                         var found = false
