@@ -1222,9 +1222,9 @@ Total Pengguna yang telah terdaftar ${pendaftar.length}`)
                 break
             case prefix+'daftarulang':
                     if (!isAdmin) return tobz.reply(from, 'Command ini hanya dapat digunakan oleh admin Chika', id)  
-                    const nomer = args[1]
-                    let text = nomer.replace(/[-\s+@c.us]/g,'')
-                    const cus = text + '@c.us'
+                    const nomerqw = args[1]
+                    let text1 = nomerqw.replace(/[-\s+@c.us]/g,'')
+                    const cus = text1 + '@c.us'
                     const umur = args[2]
                     if(umur >= 40) return await tobz.reply(from, 'Umur terlalu tua kak, max 40 yaa :D', id)
                         var found = false
@@ -1407,8 +1407,8 @@ ${desc}`)
                     if(isLimit(serial)) return
                     if (!isGroupAdmins) return tobz.reply(from, 'Command ini hanya dapat digunakan oleh admin grup')  
                     if (!args.length === 1) return tobz.reply(from, 'Masukkan nomornya, *GUNAKAN AWALAN 62*\ncontoh: #resetbadword 6285112554122 / #resetbadword @member') 
-                    const nomerqq = args[1]
-                    let text = nomerqq.replace(/[-\s+@c.us]/g,'')
+                    const nomer = args[1]
+                    let text = nomer.replace(/[-\s+@c.us]/g,'')
                     const cus = text + '@c.us'
                         var found = false
                         Object.keys(msgBadword).forEach((i) => {
