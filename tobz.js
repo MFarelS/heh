@@ -1407,8 +1407,8 @@ ${desc}`)
                     if(isLimit(serial)) return
                     if (!isGroupAdmins) return tobz.reply(from, 'Command ini hanya dapat digunakan oleh admin grup')  
                     if (!args.length === 1) return tobz.reply(from, 'Masukkan nomornya, *GUNAKAN AWALAN 62*\ncontoh: #resetbadword 6285112554122 / #resetbadword @member') 
-                    const nomer = args[1]
-                    let text = nomer.replace(/[-\s+@c.us]/g,'')
+                    const nomerqq = args[1]
+                    let text = nomerqq.replace(/[-\s+@c.us]/g,'')
                     const cus = text + '@c.us'
                         var found = false
                         Object.keys(msgBadword).forEach((i) => {
