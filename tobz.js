@@ -113,7 +113,6 @@ let muted = JSON.parse(fs.readFileSync('./lib/database/muted.json'))
 let setting = JSON.parse(fs.readFileSync('./lib/database/setting.json'))
 let msgLimit = JSON.parse(fs.readFileSync('./lib/database/msgLimit.json'))
 let adminNumber = JSON.parse(fs.readFileSync('./lib/database/admin.json'))
-let VipUser = JSON.parse(fs.readFileSync('./lib/database/VipUser.json'))
 
 
 // PROTECT
@@ -204,7 +203,7 @@ module.exports = tobz = async (tobz, message) => {
         const isAdmin = adminNumber.includes(sender.id)
         const ownerNumber = '6281311850715@c.us'
         const isOwner = ownerNumber.includes(sender.id)
-        const isVipUser = VipUser.includes(sender.id)
+        
 
 
         if (isGroupMsg && GroupLinkDetector && !isGroupAdmins && !isAdmin && !isOwner){
@@ -3482,7 +3481,6 @@ ${desc}`)
             break
         case prefix+'ig': 
         case prefix+'instagram':
-            if (!isVipUser) return tobz.reply(from, 'Fitur ini hanya dapat digunakan oleh User Vip Chika!', id)
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
@@ -4505,30 +4503,6 @@ ${desc}`)
                 })
             }
             break
-        case `${prefix}listvip`:
-			let lv = `Ini adalah list User VIP CHIKA\nTotal : ${VipUser.length}\n`
-			for (let i of VipUser) {
-				lv += `➸ ${i.replace(/@c.us/g,'')}\n`
-			}
-			await tobz.reply(from, lv, id)
-			break
-	    case `${prefix}addvip`:
-			if (!isAdmin) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Admin CHIKA', id)
-            if (!isOwner) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Owner CHIKA!', id)
-				for (let i = 0; i < mentionedJidList.length; i++) {
-				VipUser.push(mentionedJidList[i])
-				fs.writeFileSync('./lib/database/VipUser.json', JSON.stringify(VipUser))
-				tobz.sendTextWithMentions(from, `Success Menambahkan User VIP CHIKA!\n╭──────「 *VIP👑* 」──────\n│+ *UserID* : @${mentionedJidList[0].replace('@c.us', '')}\n│+ *Status* : *ACTIVE*\n│+ *Since* : ${time}\n│+ *Expired* : ${tm}\n│ Thx for Upgrade to VIP🥰\n╰──────「 *CHIKA* 」────`, id)
-				}
-            break
-		case `${prefix}delvip`:
-			if (!isAdmin) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Admin Chika', id)
-            if (!isOwner) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Owner Chika', id)
-				let dv = VipUser.indexOf(mentionedJidList[0])
-				VipUser.splice(dv, 1)
-				fs.writeFileSync('./lib/database/VipUser.json', JSON.stringify(VipUser))
-				tobz.reply(from, 'Success Menghapus User VIP Chika!', id)
-			break
         case prefix+'addadmin':
             if (!isOwner) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Owner Chika!', id)
                 for (let i = 0; i < mentionedJidList.length; i++) {
