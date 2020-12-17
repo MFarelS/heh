@@ -4514,7 +4514,7 @@ ${desc}`)
 			break
 	    case `${prefix}addvip`:
 			if (!isAdmin) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Admin CHIKA', id)
-            id (!isOwner) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Owner CHIKA!', id)
+            if (!isOwner) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan oleh Owner CHIKA!', id)
 				for (let i = 0; i < mentionedJidList.length; i++) {
 				VipUser.push(mentionedJidList[i])
 				fs.writeFileSync('./lib/database/VipUser.json', JSON.stringify(VipUser))
