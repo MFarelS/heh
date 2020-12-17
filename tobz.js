@@ -201,7 +201,7 @@ module.exports = tobz = async (tobz, message) => {
 
         const serial = sender.id
         const isAdmin = adminNumber.includes(sender.id)
-        const ownerNumber = '6281311850715@c.us'
+        const ownerNumber = '628127668234@c.us'
         const isOwner = ownerNumber.includes(sender.id)
         
 
@@ -287,7 +287,7 @@ module.exports = tobz = async (tobz, message) => {
             if (obj === true){
                 return false
             } else {
-                return tobz.reply(from, `Kamu belum cukup umur untuk menggunakan Chika, min 16 tahun\n\nKamu bisa mendaftar ulang dengan cara donasi terlebih dahulu, bales ${prefix}donasi\nHubungi Owner : wa.me/6281311850715`, id) //if user is not registered
+                return tobz.reply(from, `Kamu belum cukup umur untuk menggunakan Chika, min 16 tahun\n\nKamu bisa mendaftar ulang dengan cara donasi terlebih dahulu, bales ${prefix}donasi\nHubungi Owner : wa.me/628127668234`, id) //if user is not registered
             }
         }
 
@@ -1372,7 +1372,7 @@ ${desc}`)
             break
         case prefix+'owner':
         case prefix+'creator':
-            tobz.sendContact(chatId, `6281311850715@c.us`)
+            tobz.sendContact(chatId, `628127668234@c.us`)
             tobz.reply(from, 'Itu nomor Pacar ku, eh maksudnya Owner ku', id)
             break
         case prefix+'resetsticker':
@@ -4008,7 +4008,7 @@ ${desc}`)
             
             axios.get(`https://arugaz.herokuapp.com/api/howgay`)
             .then((res) => {
-                let hasil = `${res.desc}\n Persen = ${res.persen} %`
+                let hasil = `${res.data.desc}\n Persen = ${res.data.persen} %`
                 tobz.reply(from, hasil, id)
             })
             break
@@ -4020,7 +4020,7 @@ ${desc}`)
             
             axios.get(`https://arugaz.herokuapp.com/api/howbucins`)
             .then((res) => {
-                let hasil = `${res.desc}\n Persen = ${res.persen} %`
+                let hasil = `${res.data.desc}\n Persen = ${res.data.persen} %`
                 tobz.reply(from, hasil, id)
             })
             break
@@ -4036,7 +4036,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const cerpen = await get.get('https://arugaz.herokuapp.com/api/cerpen').json()
-            tobz.reply(from, `• *Cerpen*: ${cerpen.result}`, id)
+            tobz.reply(from, `• *Cerpen*: ${cerpen.data.result}`, id)
             break
         case prefix+'puisi': // ARUGAZ
             if(isReg(obj)) return
@@ -4045,7 +4045,7 @@ ${desc}`)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             const puisi = await get.get('https://arugaz.herokuapp.com/api/puisi1').json()
-            tobz.reply(from, `• *Puisi*: ${puisi.result}`, id)
+            tobz.reply(from, `• *Puisi*: ${puisi.data.result}`, id)
             break
         case prefix+'puisi2': // ARUGAZ
             if(isReg(obj)) return
@@ -4053,7 +4053,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const puisi2 = await get.get('https://arugaz.herokuapp.com/api/puisi2').json()
-            tobz.reply(from, `• *Puisi*: ${puisi2.result}`, id)
+            tobz.reply(from, `• *Puisi*: ${puisi2.data.result}`, id)
             break
         case prefix+'puisi3': // ARUGAZ
             if(isReg(obj)) return
@@ -4061,7 +4061,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const puisi3 = await get.get('https://arugaz.herokuapp.com/api/puisi3').json()
-            tobz.reply(from, `• *Puisi*: ${puisi3.result}`, id)
+            tobz.reply(from, `• *Puisi*: ${puisi3.data.result}`, id)
             break
         case prefix+'cersex1': // ARUGAZ
             if(isReg(obj)) return
@@ -4070,7 +4070,7 @@ ${desc}`)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const cersex1 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
-            tobz.reply(from, `• *CERSEX*: ${cersex1.result.article}`, id)
+            tobz.reply(from, `• *CERSEX*: ${cersex1.data.result.article}`, id)
             break
         case prefix+'cersex2': // ARUGAZ
             if(isReg(obj)) return
@@ -4079,7 +4079,7 @@ ${desc}`)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const cersex2 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
-            tobz.reply(from, `• *CERSEX*: ${cersex2.result.article}`, id)
+            tobz.reply(from, `• *CERSEX*: ${cersex2.data.result.article}`, id)
             break
         case prefix+'indohot': // ARUGAZ
             if(isReg(obj)) return
@@ -4088,21 +4088,24 @@ ${desc}`)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
-            tobz.reply(from, `• Judul = ${indohot.result.judul}\n Durasi = ${indohot.result.durasi}\n Country = ${indohot.result.country}\n Genre = ${indohot.result.genre}\n url download = ${indohot.result.url}`, id)
+            tobz.reply(from, `• Judul = ${indohot.data.result.judul}\n Durasi = ${indohot.data.result.durasi}\n Country = ${indohot.data.result.country}\n Genre = ${indohot.data.result.genre}\n url download = ${indohot.data.result.url}`, id)
             break
         // ADMIN & OWNER
-        case 'cekprefix':
-            tobz.reply(from, `PREFIX YANG SAAT INI DIGUNAKAN *「* ${prefix} *」*`)
-            break
-        case prefix+'setprefix':
-            if(!isOwner) return tobz.reply(from, `Perintah ini hanya bisa di gunakan oleh Owner Chika!`, id)
-            if (args.length === 1) return tobz.reply(from, `Kirim perintah *${prefix}prefix [ NEW PREFIX ]*`, id)
-            const prefa = body.slice(11)
-            setting.prefix = `${prefa}`
-            prefix = `${prefa}`
-            fs.writeFileSync('./lib/database/setting.json', JSON.stringify(setting))
-            tobz.sendText(from, `Berhasil Mengganti Prefix Ke *「* ${prefa} *」*`)
-            break
+        case `cekprefix`:
+			tobz.reply(from, `*Chika is Use ( ${prefix} ) Prefix!.* 
+_Prefix adalah tanda di awal perintah._
+_Contoh: ${prefix}menu_`, id)
+			break
+		case `${prefix}setprefix`:
+			if (!isOwner && !isAdmin) return tobz.reply(from, 'Maaf, Fitur ini hanya untuk OWNER dan ADMIN Sasha!', id)
+			if (args.length === 1) return tobz.reply(from, `*Kirim Perintah ${prefix}setprefix [prefix baru]*. 
+Contoh: ${prefix}setprefix #`, id)
+			const pf = body.slice(7)  
+			setting.prefix = `${pf}`
+			prefix = `${pf}`
+			fs.writeFileSync('./lib/database/setting.json', JSON.stringify(setting, null,2))
+			tobz.reply(from, `Change Prefix To ${pf} SUCCESS!`, id)
+			break
         case prefix+'addbadword':
             if (!isAdmin) return tobz.reply(from, `Perintah ini hanya bisa di gunakan oleh Admin Chika!`, id)
             if (!args.length >= 1) return tobz.reply(from, `Masukkan kata kasar yang akan di blacklist `, id) 
