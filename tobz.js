@@ -4125,7 +4125,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const cerpen = await get.get('https://arugaz.herokuapp.com/api/cerpen').json
-            tobz.reply(from, `• *Cerpen*: ${cerpen.result}`, id)
+            tobz.reply(from, `• *Cerpen*: ${cerpen.data.result}`, id)
             break
         case prefix+'puisi': // ARUGAZ
             if(isReg(obj)) return
@@ -4134,7 +4134,7 @@ ${desc}`)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             const puisi = await get.get('https://arugaz.herokuapp.com/api/puisi1').json
-            tobz.reply(from, `• *Puisi*: ${puisi.result}`, id)
+            tobz.reply(from, `• *Puisi*: ${puisi.data.result}`, id)
             break
         case prefix+'puisi2': // ARUGAZ
             if(isReg(obj)) return
@@ -4142,7 +4142,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const puisi2 = await get.get('https://arugaz.herokuapp.com/api/puisi2').json
-            tobz.reply(from, `• *Puisi*: ${puisi2.result}`, id)
+            tobz.reply(from, `• *Puisi*: ${puisi2.data.result}`, id)
             break
         case prefix+'puisi3': // ARUGAZ
             if(isReg(obj)) return
@@ -4150,7 +4150,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const puisi3 = await get.get('https://arugaz.herokuapp.com/api/puisi3').json
-            tobz.reply(from, `• *Puisi*: ${puisi3.result}`, id)
+            tobz.reply(from, `• *Puisi*: ${puisi3.data.result}`, id)
             break
         case prefix+'cersex1': // ARUGAZ
             if(isReg(obj)) return
@@ -4159,7 +4159,7 @@ ${desc}`)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const cersex1 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
-            tobz.reply(from, `• *CERSEX*: ${cersex1.result.article}`, id)
+            tobz.reply(from, `• *CERSEX*: ${cersex1.data.result.article}`, id)
             break
         case prefix+'cersex2': // ARUGAZ
             if(isReg(obj)) return
@@ -4168,7 +4168,7 @@ ${desc}`)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const cersex2 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
-            tobz.reply(from, `• *CERSEX*: ${cersex2.result.article}`, id)
+            tobz.reply(from, `• *CERSEX*: ${cersex2.data.result.article}`, id)
             break
         case prefix+'indohot': // ARUGAZ
             if(isReg(obj)) return
@@ -4177,7 +4177,7 @@ ${desc}`)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
-            tobz.reply(from, `• Judul = ${indohot.result.judul}\n Durasi = ${indohot.result.durasi}\n Country = ${indohot.result.country}\n Genre = ${indohot.result.genre}\n url download = ${indohot.result.url}`, id)
+            tobz.reply(from, `• Judul = ${indohot.data.result.judul}\n Durasi = ${indohot.data.result.durasi}\n Country = ${indohot.data.result.country}\n Genre = ${indohot.data.result.genre}\n url download = ${indohot.data.result.url}`, id)
             break
         // ADMIN & OWNER
         case `cekprefix`:
