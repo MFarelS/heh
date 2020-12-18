@@ -831,7 +831,9 @@ module.exports = tobz = async (tobz, message) => {
         case `assalamualaikum`:
             tobz.reply(from, `walaikumsalam Kak ${pushname}`, id)
             break
-        
+        case `pendaftar`:
+            tobz.reply(from, `Total Pengguna yang telah terdaftar ${pendaftar.length}`, id)
+            break
 		case 'ohayou':
 		case 'pagi':
 		case 'morning':
@@ -908,14 +910,14 @@ module.exports = tobz = async (tobz, message) => {
            
             const ddare = dare[Math.floor(Math.random() * (dare.length))]
            
-            await tobz.sendText(from, `${ddare}`)
+            await tobz.sendFileFromUrl(from, `https://textpro.me/images/user_image/2020/12/5fdcffcfab85a.jpg`, `tod.jpg`, `${ddare}`, id)
             break
        case prefix+'truth':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
         
             const ttrth = truth[Math.floor(Math.random() * (truth.length))]
 
-            await tobz.sendText(from, `${ttrth}`)
+            await tobz.sendFileFromUrl(from, `https://textpro.me/images/user_image/2020/12/5fdcffcfab85a.jpg`, `tod.jpg`, `${ttrth}`, id)
             break  
         case prefix+'magernulis1': // BY MFARELS
                 if(isReg(obj)) return
@@ -4052,7 +4054,7 @@ ${desc}`)
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
-            if (args.length === 1) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
+            if (args.length == 1) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
             if (args[1] == 'blackpink' || args[1] == 'exo' || args[1] == 'bts') {
                 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[1] + '.txt')
                 .then(res => res.text())
@@ -4201,7 +4203,8 @@ Contoh: ${prefix}setprefix #`, id)
         case prefix+'bc': // KASIH CREDIT DONG KALO COPAS
             if (!isOwner) return tobz.reply(from, `Perintah ini hanya untuk Owner Chika`, id)
                 bctxt = body.slice(4)
-                txtbc = `*「 Chika BROADCAST 」*\n\n${bctxt}`
+                txtbc = `*「 cHiKa BROADCAST 」*\n\n${bctxt}`
+                const urlbc = 'https://linkpicture.com/q/5fdcfd1f17c36.jpg'
                 const semuagrup = await tobz.getAllChatIds();
                 if(quotedMsg && quotedMsg.type == 'image'){
                     const mediaData = await decryptMedia(quotedMsg)
@@ -4214,7 +4217,7 @@ Contoh: ${prefix}setprefix #`, id)
                 }else{
                     for(let grupnya of semuagrup){
                         var cekgrup = await tobz.getChatById(grupnya)
-                        if(!cekgrup.isReadOnly && isMuted(grupnya)) tobz.sendText(grupnya, txtbc)
+                        if(!cekgrup.isReadOnly && isMuted(grupnya)) tobz.sendFileFromUrl(grupnya, `${urlbc}`,'bc.jpg', txtbc)
                     }
                             tobz.reply('Broadcast Success!')
                 }
