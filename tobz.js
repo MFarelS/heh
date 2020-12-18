@@ -4052,9 +4052,9 @@ ${desc}`)
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
-            if (args.length == 0) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
-            if (args[0] == 'blackpink' || args[0] == 'exo' || args[0] == 'bts') {
-                fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[0] + '.txt')
+            if (args.length === 1) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
+            if (args[1] == 'blackpink' || args[1] == 'exo' || args[1] == 'bts') {
+                fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[1] + '.txt')
                 .then(res => res.text())
                 .then(body => {
                     let randomkpop = body.split('\n')
@@ -4094,7 +4094,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const cerpen = await get.get('https://arugaz.herokuapp.com/api/cerpen').json
+            const cerpen = await get.get('https://arugaz.herokuapp.com/api/cerpen').json()
             tobz.reply(from, `• *Cerpen*: ${cerpen.data.result}`, id)
             break
         case prefix+'puisi': // ARUGAZ
@@ -4146,7 +4146,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
+            const indohot = await get.get('https://arugaz.herokuapp.com/api/indohot').json()
             tobz.reply(from, `• Judul = ${indohot.data.result.judul}\n Durasi = ${indohot.data.result.durasi}\n Country = ${indohot.data.result.country}\n Genre = ${indohot.data.result.genre}\n url download = ${indohot.data.result.url}`, id)
             break
         // ADMIN & OWNER
@@ -4886,9 +4886,9 @@ Contoh: ${prefix}setprefix #`, id)
             break
 // By Gimenz
        
-		case prefix+'wame':
 		case prefix+'wa.me':
-            await tobz.reply(from, `*Neh Mhank Link Nomor Wa Lu ${pushname}*\n\n*wa.me/${sender.id.replace(/[@c.us]/g, '')}*\n\n*Atau*\n\n*api.whatsapp.com/send?phone=${sender.id.replace(/[@c.us]/g, '')}*`)
+		case prefix+'wame':
+            tobz.reply(from, `*Neh Mhank Link Nomor Wa Lu ${pushname}*\n\n*wa.me/${sender.id.replace(/[@c.us]/g, '')}*\n\n*Atau*\n\n*api.whatsapp.com/send?phone=${sender.id.replace(/[@c.us]/g, '')}*`)
             break
 // By Gimenz
         case prefix+'snk':
