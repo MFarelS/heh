@@ -910,14 +910,14 @@ module.exports = tobz = async (tobz, message) => {
            
             const ddare = dare[Math.floor(Math.random() * (dare.length))]
            
-            await tobz.sendFileFromUrl(from, `https://textpro.me/images/user_image/2020/12/5fdcffcfab85a.jpg`, `tod.jpg`, ToD \n `${ddare}`, id)
+            await tobz.sendFileFromUrl(from, `https://textpro.me/images/user_image/2020/12/5fdcffcfab85a.jpg`, `tod.jpg`, `${ddare}`, id)
             break
        case prefix+'truth':
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
         
             const ttrth = truth[Math.floor(Math.random() * (truth.length))]
 
-            await tobz.sendFileFromUrl(from, `https://textpro.me/images/user_image/2020/12/5fdcffcfab85a.jpg`, `tod.jpg`, ToD \n `${ttrth}`, id)
+            await tobz.sendFileFromUrl(from, `https://textpro.me/images/user_image/2020/12/5fdcffcfab85a.jpg`, `tod.jpg`, `${ttrth}`, id)
             break  
         case prefix+'magernulis1': // BY MFARELS
                 if(isReg(obj)) return
