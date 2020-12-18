@@ -831,39 +831,17 @@ module.exports = tobz = async (tobz, message) => {
         case `assalamualaikum`:
             tobz.reply(from, `walaikumsalam Kak ${pushname}`, id)
             break
-        case `${prefix}hug`:
-                arg = body.trim().split(' ')
-                const janjing = author.replace('@c.us', '')
-                await tobz.sendGiphyAsSticker(from, 'https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif')
-                tobz.sendTextWithMentions(from, `${prefix}` + janjing + ' *peyuuuk* ' + arg[1])
-                break
-        case `${prefix}nye`:
-                arg = body.trim().split('')
-                const jancuk7 = author.replace('@c.us', '')
-                await tobz.sendGiphyAsSticker(from, 'https://media.giphy.com/media/cute-baka-13LunYkkBppSBa/giphy.gif')
-                tobz.sendTextWithMentions(from, `${prefix}` + jancuk7 +' *nye nye ' + arg[1])
-                break
-        case `${prefix}pat`:
-                arg = body.trim().split(' ')
-                const jartod = author.replace('@c.us', '')
-                await tobz.sendGiphyAsSticker(from, 'https://media.giphy.com/media/Z7x24IHBcmV7W/giphy.gif')
-                tobz.sendTextWithMentions(from, `${prefix}` + jartod + ' *👈 Si Mengelu-elus si👉* ' + arg[1])
-                break
-		case 'kiss':
-			tobz.sendPtt(from,'./media/yamete.mp3', id)
-			break
+        
 		case 'ohayou':
+		case 'pagi':
+		case 'morning':
 			tobz.sendPtt(from, './media/ohayou.mp3', id)
             tobz.reply(from, 'Ohayo daling', id)
             break
 		case 'konichiwa':
+		case 'konnichiwa':
+		case 'siang':
 			tobz.sendPtt(from, './media/konichiwa.mp3',id)
-			break
-		case 'tarekses':
-		case 'tariksis':
-		case 'tarek ses':
-		case 'tarik sis':
-			tobz.sendPtt(from, './media/tarekses.mp3', id)
 			break
 		case 'sad':
 		case 'Sad':
@@ -1106,18 +1084,8 @@ module.exports = tobz = async (tobz, message) => {
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#blackpink [ Teks ]*, contoh *#blackpink Chika*`, id)
             tobz.reply(from, mess.wait, id)
             const blpk = body.slice(11)
-            if (blpk.length > 10) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+            if (blpk.length > 15) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 15 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/blackpinkicon?text=${blpk}&apikey=${vhtearkey}`, 'blackpink.jpg', '', id)
-            break
-        case prefix+'giftext':
-            if(isReg(obj)) return
-            if(cekumur(cekage)) return
-            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            if (args.length === 1) return tobz.reply(from, `Kirim perintah *#giftext [ Teks ]*, contoh *#giftext Chika*`, id)
-            tobz.reply(from, mess.wait, id)
-            const gifqw = body.slice(9)
-            if (gifqw.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
-            await tobz.sendGiphyAsSticker(from, `https://api.vhtear.com/textxgif?text=${gifqw}&apikey=${vhtearkey}`, 'blackpink.jpg', '', id)
             break
         case prefix+'thunder':
             if(isReg(obj)) return
@@ -1126,7 +1094,7 @@ module.exports = tobz = async (tobz, message) => {
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#thunder [ Teks ]*, contoh *#thunder Tobz*`, id)
             tobz.reply(from, mess.wait, id)
             const thndr = body.slice(9)
-            if (thndr.length > 10) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+            if (thndr.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/thundertext?text=${thndr}&apikey=${vhtearkey}`, 'thndr.jpg', '', id)
             break
          case prefix+'silk':
@@ -1136,7 +1104,7 @@ module.exports = tobz = async (tobz, message) => {
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#silk [ Teks ]*, contoh *#sTobz*`, id)
             tobz.reply(from, mess.wait, id)
             const silkh = body.slice(6)
-            if (silkh.length > 15) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 15 huruf!_', id)
+            if (silkh.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/silktext?text=${silkh}&apikey=${vhtearkey}`, 'thndr.jpg', '', id)
             break
          case prefix+'party':
@@ -1146,7 +1114,7 @@ module.exports = tobz = async (tobz, message) => {
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#party [ Teks ]*, contoh *#party Tobz*`, id)
             tobz.reply(from, mess.wait, id)
             const partyy = body.slice(7)
-            if (partyy.length > 15) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 15 huruf!_', id)
+            if (partyy.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/partytext?text=${partyy}&apikey=${vhtearkey}`, 'thndr.jpg', '', id)
             break
          case prefix+'romtext':
@@ -1941,12 +1909,12 @@ ${desc}`)
                 tobz.sendText(from, 'Maaf tolong masukan code nuclear')
             }
             break
-        /*case prefix+'wallanime' :
+        case prefix+'wallanime' :
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             const walnime = ['https://wallpaperaccess.com/full/395986.jpg','https://wallpaperaccess.com/full/21628.jpg','https://wallpaperaccess.com/full/21622.jpg','https://wallpaperaccess.com/full/21612.jpg','https://wallpaperaccess.com/full/21611.png','https://wallpaperaccess.com/full/21597.jpg','https://cdn.nekos.life/wallpaper/QwGLg4oFkfY.png','https://wallpaperaccess.com/full/21591.jpg','https://cdn.nekos.life/wallpaper/bUzSjcYxZxQ.jpg','https://cdn.nekos.life/wallpaper/j49zxzaUcjQ.jpg','https://cdn.nekos.life/wallpaper/YLTH5KuvGX8.png','https://cdn.nekos.life/wallpaper/Xi6Edg133m8.jpg','https://cdn.nekos.life/wallpaper/qvahUaFIgUY.png','https://cdn.nekos.life/wallpaper/leC8q3u8BSk.jpg','https://cdn.nekos.life/wallpaper/tSUw8s04Zy0.jpg','https://cdn.nekos.life/wallpaper/sqsj3sS6EJE.png','https://cdn.nekos.life/wallpaper/HmjdX_s4PU4.png','https://cdn.nekos.life/wallpaper/Oe2lKgLqEXY.jpg','https://cdn.nekos.life/wallpaper/GTwbUYI-xTc.jpg','https://cdn.nekos.life/wallpaper/nn_nA8wTeP0.png','https://cdn.nekos.life/wallpaper/Q63o6v-UUa8.png','https://cdn.nekos.life/wallpaper/ZXLFm05K16Q.jpg','https://cdn.nekos.life/wallpaper/cwl_1tuUPuQ.png','https://cdn.nekos.life/wallpaper/wWhtfdbfAgM.jpg','https://cdn.nekos.life/wallpaper/3pj0Xy84cPg.jpg','https://cdn.nekos.life/wallpaper/sBoo8_j3fkI.jpg','https://cdn.nekos.life/wallpaper/gCUl_TVizsY.png','https://cdn.nekos.life/wallpaper/LmTi1k9REW8.jpg','https://cdn.nekos.life/wallpaper/sbq_4WW2PUM.jpg','https://cdn.nekos.life/wallpaper/QOSUXEbzDQA.png','https://cdn.nekos.life/wallpaper/khaqGIHsiqk.jpg','https://cdn.nekos.life/wallpaper/iFtEXugqQgA.png','https://cdn.nekos.life/wallpaper/deFKIDdRe1I.jpg','https://cdn.nekos.life/wallpaper/OHZVtvDm0gk.jpg','https://cdn.nekos.life/wallpaper/YZYa00Hp2mk.jpg','https://cdn.nekos.life/wallpaper/R8nPIKQKo9g.png','https://cdn.nekos.life/wallpaper/_brn3qpRBEE.jpg','https://cdn.nekos.life/wallpaper/ADTEQdaHhFI.png','https://cdn.nekos.life/wallpaper/MGvWl6om-Fw.jpg','https://cdn.nekos.life/wallpaper/YGmpjZW3AoQ.jpg','https://cdn.nekos.life/wallpaper/hNCgoY-mQPI.jpg','https://cdn.nekos.life/wallpaper/3db40hylKs8.png','https://cdn.nekos.life/wallpaper/iQ2FSo5nCF8.jpg','https://cdn.nekos.life/wallpaper/meaSEfeq9QM.png','https://cdn.nekos.life/wallpaper/CmEmn79xnZU.jpg','https://cdn.nekos.life/wallpaper/MAL18nB-yBI.jpg','https://cdn.nekos.life/wallpaper/FUuBi2xODuI.jpg','https://cdn.nekos.life/wallpaper/ez-vNNuk6Ck.jpg','https://cdn.nekos.life/wallpaper/K4-z0Bc0Vpc.jpg','https://cdn.nekos.life/wallpaper/Y4JMbswrNg8.jpg','https://cdn.nekos.life/wallpaper/ffbPXIxt4-0.png','https://cdn.nekos.life/wallpaper/x63h_W8KFL8.jpg','https://cdn.nekos.life/wallpaper/lktzjDRhWyg.jpg','https://cdn.nekos.life/wallpaper/j7oQtvRZBOI.jpg','https://cdn.nekos.life/wallpaper/MQQEAD7TUpQ.png','https://cdn.nekos.life/wallpaper/lEG1-Eeva6Y.png','https://cdn.nekos.life/wallpaper/Loh5wf0O5Aw.png','https://cdn.nekos.life/wallpaper/yO6ioREenLA.png','https://cdn.nekos.life/wallpaper/4vKWTVgMNDc.jpg','https://cdn.nekos.life/wallpaper/Yk22OErU8eg.png','https://cdn.nekos.life/wallpaper/Y5uf1hsnufE.png','https://cdn.nekos.life/wallpaper/xAmBpMUd2Zw.jpg','https://cdn.nekos.life/wallpaper/f_RWFoWciRE.jpg','https://cdn.nekos.life/wallpaper/Y9qjP2Y__PA.jpg','https://cdn.nekos.life/wallpaper/eqEzgohpPwc.jpg','https://cdn.nekos.life/wallpaper/s1MBos_ZGWo.jpg','https://cdn.nekos.life/wallpaper/PtW0or_Pa9c.png','https://cdn.nekos.life/wallpaper/32EAswpy3M8.png','https://cdn.nekos.life/wallpaper/Z6eJZf5xhcE.png','https://cdn.nekos.life/wallpaper/xdiSF731IFY.jpg','https://cdn.nekos.life/wallpaper/Y9r9trNYadY.png','https://cdn.nekos.life/wallpaper/8bH8CXn-sOg.jpg','https://cdn.nekos.life/wallpaper/a02DmIFzRBE.png','https://cdn.nekos.life/wallpaper/MnrbXcPa7Oo.png','https://cdn.nekos.life/wallpaper/s1Tc9xnugDk.jpg','https://cdn.nekos.life/wallpaper/zRqEx2gnfmg.jpg','https://cdn.nekos.life/wallpaper/PtW0or_Pa9c.png','https://cdn.nekos.life/wallpaper/0ECCRW9soHM.jpg','https://cdn.nekos.life/wallpaper/kAw8QHl_wbM.jpg','https://cdn.nekos.life/wallpaper/ZXcaFmpOlLk.jpg','https://cdn.nekos.life/wallpaper/WVEdi9Ng8UE.png','https://cdn.nekos.life/wallpaper/IRu29rNgcYU.png','https://cdn.nekos.life/wallpaper/LgIJ_1AL3rM.jpg','https://cdn.nekos.life/wallpaper/DVD5_fLJEZA.jpg','https://cdn.nekos.life/wallpaper/siqOQ7k8qqk.jpg','https://cdn.nekos.life/wallpaper/CXNX_15eGEQ.png','https://cdn.nekos.life/wallpaper/s62tGjOTHnk.jpg','https://cdn.nekos.life/wallpaper/tmQ5ce6EfJE.png','https://cdn.nekos.life/wallpaper/Zju7qlBMcQ4.jpg','https://cdn.nekos.life/wallpaper/CPOc_bMAh2Q.png','https://cdn.nekos.life/wallpaper/Ew57S1KtqsY.jpg','https://cdn.nekos.life/wallpaper/hVpFbYJmZZc.jpg','https://cdn.nekos.life/wallpaper/sb9_J28pftY.jpg','https://cdn.nekos.life/wallpaper/JDoIi_IOB04.jpg','https://cdn.nekos.life/wallpaper/rG76AaUZXzk.jpg','https://cdn.nekos.life/wallpaper/9ru2luBo360.png','https://cdn.nekos.life/wallpaper/ghCgiWFxGwY.png','https://cdn.nekos.life/wallpaper/OSR-i-Rh7ZY.png','https://cdn.nekos.life/wallpaper/65VgtPyweCc.jpg','https://cdn.nekos.life/wallpaper/3vn-0FkNSbM.jpg','https://cdn.nekos.life/wallpaper/u02Y0-AJPL0.jpg','https://cdn.nekos.life/wallpaper/_-Z-0fGflRc.jpg','https://cdn.nekos.life/wallpaper/3VjNKqEPp58.jpg','https://cdn.nekos.life/wallpaper/NoG4lKnk6Sc.jpg','https://cdn.nekos.life/wallpaper/xiTxgRMA_IA.jpg','https://cdn.nekos.life/wallpaper/yq1ZswdOGpg.png','https://cdn.nekos.life/wallpaper/4SUxw4M3UMA.png','https://cdn.nekos.life/wallpaper/cUPnQOHNLg0.jpg','https://cdn.nekos.life/wallpaper/zczjuLWRisA.jpg','https://cdn.nekos.life/wallpaper/TcxvU_diaC0.png','https://cdn.nekos.life/wallpaper/7qqWhEF_uoY.jpg','https://cdn.nekos.life/wallpaper/J4t_7DvoUZw.jpg','https://cdn.nekos.life/wallpaper/xQ1Pg5D6J4U.jpg','https://cdn.nekos.life/wallpaper/aIMK5Ir4xho.jpg','https://cdn.nekos.life/wallpaper/6gneEXrNAWU.jpg','https://cdn.nekos.life/wallpaper/PSvNdoISWF8.jpg','https://cdn.nekos.life/wallpaper/SjgF2-iOmV8.jpg','https://cdn.nekos.life/wallpaper/vU54ikOVY98.jpg','https://cdn.nekos.life/wallpaper/QjnfRwkRU-Q.jpg','https://cdn.nekos.life/wallpaper/uSKqzz6ZdXc.png','https://cdn.nekos.life/wallpaper/AMrcxZOnVBE.jpg','https://cdn.nekos.life/wallpaper/N1l8SCMxamE.jpg','https://cdn.nekos.life/wallpaper/n2cBaTo-J50.png','https://cdn.nekos.life/wallpaper/ZXcaFmpOlLk.jpg','https://cdn.nekos.life/wallpaper/7bwxy3elI7o.png','https://cdn.nekos.life/wallpaper/7VW4HwF6LcM.jpg','https://cdn.nekos.life/wallpaper/YtrPAWul1Ug.png','https://cdn.nekos.life/wallpaper/1p4_Mmq95Ro.jpg','https://cdn.nekos.life/wallpaper/EY5qz5iebJw.png','https://cdn.nekos.life/wallpaper/aVDS6iEAIfw.jpg','https://cdn.nekos.life/wallpaper/veg_xpHQfjE.jpg','https://cdn.nekos.life/wallpaper/meaSEfeq9QM.png','https://cdn.nekos.life/wallpaper/Xa_GtsKsy-s.png','https://cdn.nekos.life/wallpaper/6Bx8R6D75eM.png','https://cdn.nekos.life/wallpaper/zXOGXH_b8VY.png','https://cdn.nekos.life/wallpaper/VQcviMxoQ00.png','https://cdn.nekos.life/wallpaper/CJnRl-PKWe8.png','https://cdn.nekos.life/wallpaper/zEWYfFL_Ero.png','https://cdn.nekos.life/wallpaper/_C9Uc5MPaz4.png','https://cdn.nekos.life/wallpaper/zskxNqNXyG0.jpg','https://cdn.nekos.life/wallpaper/g7w14PjzzcQ.jpg','https://cdn.nekos.life/wallpaper/KavYXR_GRB4.jpg','https://cdn.nekos.life/wallpaper/Z_r9WItzJBc.jpg','https://cdn.nekos.life/wallpaper/Qps-0JD6834.jpg','https://cdn.nekos.life/wallpaper/Ri3CiJIJ6M8.png','https://cdn.nekos.life/wallpaper/ArGYIpJwehY.jpg','https://cdn.nekos.life/wallpaper/uqYKeYM5h8w.jpg','https://cdn.nekos.life/wallpaper/h9cahfuKsRg.jpg','https://cdn.nekos.life/wallpaper/iNPWKO8d2a4.jpg','https://cdn.nekos.life/wallpaper/j2KoFVhsNig.jpg','https://cdn.nekos.life/wallpaper/z5Nc-aS6QJ4.jpg','https://cdn.nekos.life/wallpaper/VUFoK8l1qs0.png','https://cdn.nekos.life/wallpaper/rQ8eYh5mXN8.png','https://cdn.nekos.life/wallpaper/D3NxNISDavQ.png','https://cdn.nekos.life/wallpaper/Z_CiozIenrU.jpg','https://cdn.nekos.life/wallpaper/np8rpfZflWE.jpg','https://cdn.nekos.life/wallpaper/ED-fgS09gik.jpg','https://cdn.nekos.life/wallpaper/AB0Cwfs1X2w.jpg','https://cdn.nekos.life/wallpaper/DZBcYfHouiI.jpg','https://cdn.nekos.life/wallpaper/lC7pB-GRAcQ.png','https://cdn.nekos.life/wallpaper/zrI-sBSt2zE.png','https://cdn.nekos.life/wallpaper/_RJhylwaCLk.jpg','https://cdn.nekos.life/wallpaper/6km5m_GGIuw.png','https://cdn.nekos.life/wallpaper/3db40hylKs8.png','https://cdn.nekos.life/wallpaper/oggceF06ONQ.jpg','https://cdn.nekos.life/wallpaper/ELdH2W5pQGo.jpg','https://cdn.nekos.life/wallpaper/Zun_n5pTMRE.png','https://cdn.nekos.life/wallpaper/VqhFKG5U15c.png','https://cdn.nekos.life/wallpaper/NsMoiW8JZ60.jpg','https://cdn.nekos.life/wallpaper/XE4iXbw__Us.png','https://cdn.nekos.life/wallpaper/a9yXhS2zbhU.jpg','https://cdn.nekos.life/wallpaper/jjnd31_3Ic8.jpg','https://cdn.nekos.life/wallpaper/Nxanxa-xO3s.png','https://cdn.nekos.life/wallpaper/dBHlPcbuDc4.jpg','https://cdn.nekos.life/wallpaper/6wUZIavGVQU.jpg','https://cdn.nekos.life/wallpaper/_-Z-0fGflRc.jpg','https://cdn.nekos.life/wallpaper/H9OUpIrF4gU.jpg','https://cdn.nekos.life/wallpaper/xlRdH3fBMz4.jpg','https://cdn.nekos.life/wallpaper/7IzUIeaae9o.jpg','https://cdn.nekos.life/wallpaper/FZCVL6PyWq0.jpg','https://cdn.nekos.life/wallpaper/5dG-HH6d0yw.png','https://cdn.nekos.life/wallpaper/ddxyA37HiwE.png','https://cdn.nekos.life/wallpaper/I0oj_jdCD4k.jpg','https://cdn.nekos.life/wallpaper/ABchTV97_Ts.png','https://cdn.nekos.life/wallpaper/58C37kkq39Y.png','https://cdn.nekos.life/wallpaper/HMS5mK7WSGA.jpg','https://cdn.nekos.life/wallpaper/1O3Yul9ojS8.jpg','https://cdn.nekos.life/wallpaper/hdZI1XsYWYY.jpg','https://cdn.nekos.life/wallpaper/h8pAJJnBXZo.png','https://cdn.nekos.life/wallpaper/apO9K9JIUp8.jpg','https://cdn.nekos.life/wallpaper/p8f8IY_2mwg.jpg','https://cdn.nekos.life/wallpaper/HY1WIB2r_cE.jpg','https://cdn.nekos.life/wallpaper/u02Y0-AJPL0.jpg','https://cdn.nekos.life/wallpaper/jzN74LcnwE8.png','https://cdn.nekos.life/wallpaper/IeAXo5nJhjw.jpg','https://cdn.nekos.life/wallpaper/7lgPyU5fuLY.jpg','https://cdn.nekos.life/wallpaper/f8SkRWzXVxk.png','https://cdn.nekos.life/wallpaper/ZmDTpGGeMR8.jpg','https://cdn.nekos.life/wallpaper/AMrcxZOnVBE.jpg','https://cdn.nekos.life/wallpaper/ZhP-f8Icmjs.jpg','https://cdn.nekos.life/wallpaper/7FyUHX3fE2o.jpg','https://cdn.nekos.life/wallpaper/CZoSLK-5ng8.png','https://cdn.nekos.life/wallpaper/pSNDyxP8l3c.png','https://cdn.nekos.life/wallpaper/AhYGHF6Fpck.jpg','https://cdn.nekos.life/wallpaper/ic6xRRptRes.jpg','https://cdn.nekos.life/wallpaper/89MQq6KaggI.png','https://cdn.nekos.life/wallpaper/y1DlFeHHTEE.png']
             let walnimek = walnime[Math.floor(Math.random() * walnime.length)]
             tobz.sendFileFromUrl(from, walnimek, 'Nimek.jpg', '', id)
-            break*/
+            break
         case prefix+'quotesnime':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
@@ -3369,8 +3337,10 @@ ${desc}`)
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
-            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            if (args.length === 1)  return tobz.reply(from, 'Kirim perintah *#igstalk @username*\nContoh *#igstalk duar_amjay*', id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ❤️limit Untuk Mengecek Kuota Limit Kamu`, id)
+            
+            await limitAdd(serial)
+            if (args.length === 1)  return tobz.reply(from, 'Kirim perintah *❤️igstalk @username*\nContoh *❤️igstalk duar_amjay*', id)
             arg = body.trim().split(' ')
             console.log(...arg[1])
             var slicedArgs = Array.prototype.slice.call(arg, 1);
@@ -3378,21 +3348,21 @@ ${desc}`)
             const istalk = await slicedArgs.join(' ')
             console.log(istalk)
             try {
-            const istalk2 = await axios.get('https://tobz-api.herokuapp.com/api/stalk?username=' + istalk)
-            const { Biodata, Jumlah_Followers, Jumlah_Following, Profile_pic, Jumlah_Post, Name, Username } = istalk2.data
+            const istalk2 = await axios.get('https://api.vhtear.com/igprofile?query=' + istalk + '&apikey=' + vhtearkey)
+            const { biography, follower, follow, picture, post_count, full_name, username, is_private } = istalk2.data.result
             const istalk3 = `*User Ditemukan!*
 
-➸ *Username:* ${Username}
-➸ *Nama:* ${Name}
-➸ *Bio:* ${Biodata}
-➸ *Mengikuti:* ${Jumlah_Following}
-➸ *Pengikut:* ${Jumlah_Followers}
-➸ *Jumlah Postingan:* ${Jumlah_Post}`
+➸ *Username:* ${username}
+➸ *Nama:* ${full_name}
+➸ *Bio:* ${biography}
+➸ *Mengikuti:* ${follow}
+➸ *Pengikut:* ${follower}
+➸ *Jumlah Postingan:* ${post_count}
+➸ *Private:* ${is_private}`
             
-            const pictk = await bent("buffer")(Profile_pic)
+            const pictk = await bent("buffer")(picture)
             const base64 = `data:image/jpg;base64,${pictk.toString("base64")}`
-            tobz.sendImage(from, base64, Username, istalk3)
-            await limitAdd(serial)
+            tobz.sendImage(from, base64, username, istalk3)
             } catch (err) {
              console.error(err.message)
              await tobz.sendFileFromUrl(from, errorurl2, 'error.png', '💔️ Maaf, User tidak ditemukan')
@@ -4026,14 +3996,14 @@ ${desc}`)
                 tobz.reply(from, hasil, id)
             })
             break
-         case prefix+`️cersex`:
+         case prefix+'cersex':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             tobz.reply(from, `silahkan command dengan pilihan *#️cersex1* atau *#️cersex2*`, id)
             break
-        case prefix+`motivasi`:
+        case prefix+'motivasi':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
@@ -4048,7 +4018,7 @@ ${desc}`)
                 tobz.reply(from, 'Ada yang Error!', id)
             })
             break
-        case prefix+`️katabijak`:
+        case prefix+'katabijak':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
@@ -4063,7 +4033,7 @@ ${desc}`)
                 tobz.reply(from, 'Ada yang Error!', id)
             })
             break
-        case prefix+`pantun`:
+        case prefix+'pantun':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
@@ -4078,7 +4048,7 @@ ${desc}`)
                 tobz.reply(from, 'Ada yang Error!', id)
             })
             break
-        case prefix+`kpop`:
+        case prefix+'kpop':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
@@ -4098,7 +4068,7 @@ ${desc}`)
                 tobz.reply(from, `Maaf query tidak tersedia. Silahkan ketik ${prefix}kpop untuk melihat list query`)
             }
             break
-        case prefix+`️fakta`:
+        case prefix+'fakta':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
@@ -4113,7 +4083,7 @@ ${desc}`)
                 tobz.reply(from, 'Ada yang Error!', id)
             })
             break
-        case prefix+`️pesankosong`:
+        case prefix+'pesankosong':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
@@ -4133,7 +4103,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
-            const puisi = await get.get('https://arugaz.herokuapp.com/api/puisi1').json
+            const puisi = await get.get('https://arugaz.herokuapp.com/api/puisi1').json()
             tobz.reply(from, `• *Puisi*: ${puisi.data.result}`, id)
             break
         case prefix+'puisi2': // ARUGAZ
@@ -4141,7 +4111,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const puisi2 = await get.get('https://arugaz.herokuapp.com/api/puisi2').json
+            const puisi2 = await get.get('https://arugaz.herokuapp.com/api/puisi2').json()
             tobz.reply(from, `• *Puisi*: ${puisi2.data.result}`, id)
             break
         case prefix+'puisi3': // ARUGAZ
@@ -4149,7 +4119,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const puisi3 = await get.get('https://arugaz.herokuapp.com/api/puisi3').json
+            const puisi3 = await get.get('https://arugaz.herokuapp.com/api/puisi3').json()
             tobz.reply(from, `• *Puisi*: ${puisi3.data.result}`, id)
             break
         case prefix+'cersex1': // ARUGAZ
@@ -4158,7 +4128,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const cersex1 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
+            const cersex1 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
             tobz.reply(from, `• *CERSEX*: ${cersex1.data.result.article}`, id)
             break
         case prefix+'cersex2': // ARUGAZ
@@ -4167,7 +4137,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const cersex2 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
+            const cersex2 = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
             tobz.reply(from, `• *CERSEX*: ${cersex2.data.result.article}`, id)
             break
         case prefix+'indohot': // ARUGAZ
@@ -4176,7 +4146,7 @@ ${desc}`)
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (!isNsfw) return tobz.reply(from, 'command/Perintah NSFW belum di aktifkan di group ini!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
-            const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json
+            const indohot = await get.get('https://arugaz.herokuapp.com/api/cersex1').json()
             tobz.reply(from, `• Judul = ${indohot.data.result.judul}\n Durasi = ${indohot.data.result.durasi}\n Country = ${indohot.data.result.country}\n Genre = ${indohot.data.result.genre}\n url download = ${indohot.data.result.url}`, id)
             break
         // ADMIN & OWNER
@@ -4915,8 +4885,9 @@ Contoh: ${prefix}setprefix #`, id)
             tobz.sendText(from, bahasalist)
             break
 // By Gimenz
-        case prefix+`wa.me`:
-        case prefix+`wame`:
+       
+		case prefix+'wame':
+		case prefix+'wa.me':
             await tobz.reply(from, `*Neh Mhank Link Nomor Wa Lu ${pushname}*\n\n*wa.me/${sender.id.replace(/[@c.us]/g, '')}*\n\n*Atau*\n\n*api.whatsapp.com/send?phone=${sender.id.replace(/[@c.us]/g, '')}*`)
             break
 // By Gimenz
