@@ -7,7 +7,7 @@ function help() {
 ║
 ╠➥ CHIKA BOT
 ╠➥ 1.0
-╠➥ Command = 194
+╠➥ Command = 196
 ║
 ╠══✪〘 GROUP 〙✪══
 ║
@@ -110,6 +110,8 @@ function help() {
 ╠➥ *${prefix}puisi*
 ╠➥ *${prefix}puisi2*
 ╠➥ *${prefix}puisi3*
+╠➥ *${prefix}slap*
+╠➥ *${prefix}tagme*
 ╠➥ *${prefix}thunder [teks]*
 ╠➥ *${prefix}blackpink [teks]*
 ╠➥ *${prefix}party [teks]*
