@@ -2238,6 +2238,8 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
+            
+            await limitAdd(serial)
             arg = body.trim().split(' ')
             console.log(...arg[1])
             var slicedArgs = Array.prototype.slice.call(arg, 1);
@@ -2246,8 +2248,7 @@ ${desc}`)
             console.log(country)
             const response2 = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/' + country + '/')
             const { cases, todayCases, deaths, todayDeaths, active } = response2.data
-            await tobz.sendText(from, '🌎️ Covid Info - ' + country + ' 🌍️\n\n✨️ Total Cases: ' + `${cases}` + '\n📆️ Today\'s Cases: ' + `${todayCases}` + '\n☣️ Total Deaths: ' + `${deaths}` + '\n☢️ Today\'s Deaths: ' + `${todayDeaths}` + '\n⛩️ Active Cases: ' + `${active}` + '.')
-            await limitAdd(serial)
+                await tobz.sendText(from, '🌎️ Covid Info - ' + country + ' 🌍️\n\n✨️ Total Cases: ' + `${cases}` + '\n📆️ Today\'s Cases: ' + `${todayCases}` + '\n☣️ Total Deaths: ' + `${deaths}` + '\n☢️ Today\'s Deaths: ' + `${todayDeaths}` + '\n⛩️ Active Cases: ' + `${active}` + '.')
             break
         case prefix+'spamcall':
             if(isReg(obj)) return
@@ -3037,8 +3038,8 @@ ${desc}`)
             try {
             const resp = await axios.get('https://api.vhtear.com/funkuis&apikey=' + vhtearkey)
             if (resp.data.error) return tobz.reply(from, resp.data.error, id)
-            const anm2 = `➸ Soal : ${resp.data.result.soal}\n➸ Deskripsi : ${resp.data.result.desk}\n➸ Poin : ${resp.data.result.poin}`
-            const jwban = `➸ Jawaban : ${resp.data.result.jawaban}`
+            const anm2 = `➸ Soal : ${resp.data.result.soal}\n➸ Poin : ${resp.data.result.poin}`
+            const jwban = `➸ Jawaban : ${resp.data.result.desk}`
             tobz.reply(from, anm2, id)
             tobz.sendText(from, `30 Detik Lagi...`, id)
             await sleep(10000)
@@ -3463,6 +3464,7 @@ ${desc}`)
         case prefix+'instagram':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#ig [ Link Instagram ]* untuk contoh silahkan kirim perintah *#readme*`)
             if (!args[1].match(isUrl) && !args[1].includes('instagram.com')) return tobz.reply(from, `Maaf, link yang kamu kirim tidak valid. [Invalid Link]`, id)
