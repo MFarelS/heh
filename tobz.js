@@ -1090,6 +1090,17 @@ module.exports = tobz = async (tobz, message) => {
             if (blpk.length > 15) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 15 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/blackpinkicon?text=${blpk}&apikey=${vhtearkey}`, 'blackpink.jpg', '', id)
             break
+        case prefix+'glowtext':
+            if(isReg(obj)) return
+            if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (args.length === 1) return tobz.reply(from, `Kirim perintah *#blackpink [ Teks ]*, contoh *#blackpink Chika*`, id)
+            tobz.reply(from, mess.wait, id)
+            const gltx = body.slice(10)
+            if (gltx.length > 15) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+            await tobz.sendFileFromUrl(from, `https://api.vhtear.com/glowtext?text=${gltx}&apikey=${vhtearkey}`, 'blackpink.jpg', '', id)
+            break
         case prefix+'thunder':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
@@ -1100,6 +1111,17 @@ module.exports = tobz = async (tobz, message) => {
             const thndr = body.slice(9)
             if (thndr.length > 20) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 20 huruf!_', id)
             await tobz.sendFileFromUrl(from, `https://api.vhtear.com/thundertext?text=${thndr}&apikey=${vhtearkey}`, 'thndr.jpg', '', id)
+            break
+         case prefix+'lovetext':
+            if(isReg(obj)) return
+            if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (args.length === 1) return tobz.reply(from, `Kirim perintah *#blackpink [ Teks ]*, contoh *#blackpink Chika*`, id)
+            tobz.reply(from, mess.wait, id)
+            const lvtx = body.slice(10)
+            if (lvtx.length > 10) return tobz.reply(from, '*Teks Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+            await tobz.sendFileFromUrl(from, `https://api.vhtear.com/lovemessagetext?text=${lvtx}&apikey=${vhtearkey}`, 'blackpink.jpg', '', id)
             break
          case prefix+'silk':
             if(isReg(obj)) return
@@ -1151,6 +1173,25 @@ module.exports = tobz = async (tobz, message) => {
                 await limitAdd(serial)
             } else {
                 await tobz.reply(from, `Wrong Format!\n[❗] Kirim perintah *#pornhub [ |Teks1|Teks2 ]*, contoh *#pornhub |Tobz|Dev Chika*`, id)
+            }
+            break
+        case prefix+'glitch':
+            if(isReg(obj)) return
+            if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
+            if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
+            if (args.length === 1) return tobz.reply(from, `Kirim perintah *#glitch [ |Teks1|Teks2 ]*, contoh *#glitch |Tobz|Dev Chika*`, id)
+            argz = body.trim().split('|')
+            if (argz.length >= 2) {
+                tobz.reply(from, mess.wait, id)
+                const lglitch = argz[1]
+                const lglitch2 = argz[2]
+                if (lglitch.length > 10) return tobz.reply(from, '*Teks1 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+                if (lglitch2.length > 10) return tobz.reply(from, '*Teks2 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+                tobz.sendFileFromUrl(from, `https://api.vhtear.com/glitchtext?text1=${lglitch}&text2=${lglitch2}&apikey=${vhtearkey}`)
+                await limitAdd(serial)
+            } else {
+                await tobz.reply(from, `Wrong Format!\n[❗] Kirim perintah *#glitch [ |Teks1|Teks2 ]*, contoh *#glitch |Tobz|Dev Chika*`, id)
             }
             break
          case prefix+'daftar':  // NAMBAHIN NOMOR DI DATABASE
@@ -4063,7 +4104,7 @@ ${desc}`)
             if(cekumur(cekage)) return
             if (!isGroupMsg) return tobz.reply(from, `Perintah ini hanya bisa di gunakan dalam group!`, id)
             if (args.length == 1) return aruga.reply(from, `Untuk menggunakan ${prefix}kpop\nSilahkan ketik: ${prefix}kpop [query]\nContoh: ${prefix}kpop bts\n\nquery yang tersedia:\nblackpink, exo, bts`, id)
-            if (args[1] == 'blackpink' || args[1] == 'exo' || args[1] == 'bts') {
+            if (args[1] == ' ' || args[1] == 'exo' || args[1] == 'bts') {
                 fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/kpop/' + args[1] + '.txt')
                 .then(res => res.text())
                 .then(body => {
