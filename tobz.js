@@ -836,6 +836,9 @@ module.exports = tobz = async (tobz, message) => {
             tobz.sendStickerfromUrl(from, 'https://i.ibb.co/zf41Vcs/IMG-20201212-WA1876.png')
             tobz.sendPtt(from, './media/senpai.mp3', id)
             break
+        case `ara`:
+            tobz.sendPtt(from, './media/ara.mp3', id)
+            break
         case `assalamualaikum`:
             tobz.reply(from, `walaikumsalam Kak ${pushname}`, id)
             break
