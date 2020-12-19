@@ -796,7 +796,9 @@ module.exports = tobz = async (tobz, message) => {
                 }
             break
         case `${prefix}snobg`:
-			if (!isVipUser) return tobz.reply(from, `Maaf ${pushname}, Hanya untuk VIP User Sasha!.`, id)
+			if(isReg(obj)) return
+            if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
                 try {
                     var mediaData = await decryptMedia(message, uaOverride)
                     var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
