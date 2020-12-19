@@ -1082,6 +1082,7 @@ module.exports = tobz = async (tobz, message) => {
         case prefix+'blackpink':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#blackpink [ Teks ]*, contoh *#blackpink Chika*`, id)
             tobz.reply(from, mess.wait, id)
@@ -1092,6 +1093,7 @@ module.exports = tobz = async (tobz, message) => {
         case prefix+'thunder':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#thunder [ Teks ]*, contoh *#thunder Tobz*`, id)
             tobz.reply(from, mess.wait, id)
@@ -1102,6 +1104,7 @@ module.exports = tobz = async (tobz, message) => {
          case prefix+'silk':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#silk [ Teks ]*, contoh *#sTobz*`, id)
             tobz.reply(from, mess.wait, id)
@@ -1112,6 +1115,7 @@ module.exports = tobz = async (tobz, message) => {
          case prefix+'party':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#party [ Teks ]*, contoh *#party Tobz*`, id)
             tobz.reply(from, mess.wait, id)
@@ -1122,6 +1126,7 @@ module.exports = tobz = async (tobz, message) => {
          case prefix+'romtext':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#romtext [ Teks ]*, contoh *#romtext gw dan owner*`, id)
             tobz.reply(from, mess.wait, id)
@@ -1132,6 +1137,7 @@ module.exports = tobz = async (tobz, message) => {
         case prefix+'pornhub':
             if(isReg(obj)) return
             if(cekumur(cekage)) return
+            if (!isGroupMsg) return tobz.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             if (isLimit(serial)) return tobz.reply(from, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik ${prefix}limit Untuk Mengecek Kuota Limit Kamu`, id)
             if (args.length === 1) return tobz.reply(from, `Kirim perintah *#pornhub [ |Teks1|Teks2 ]*, contoh *#pornhub |Tobz|Dev Chika*`, id)
             argz = body.trim().split('|')
