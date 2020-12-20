@@ -2714,13 +2714,13 @@ ${desc}`)
             await limitAdd(serial)
             tobz.reply(from, mess.wait, id)
             try {
-                const jadwalbo = await axios.get(`https://api.vhtear.com/jadwalbola&apikey=${vhtearkey}`)
-                const jadwalbol = jadwalbo.data
-                 let jadwalbolaaa = `*Jadwal Bola hari ini*\n`
-                for (let i = 0; i < jadwalbol.result.length; i++) {
-                    jadwalbolaaa += `\n═════════════════\n\n*Kickoff* : ${jadwalbol.result[i].kickoff}\n*Pertandingan* : ${jadwalbol.result[i].pertandingan}\n*Stasiun Tv* : ${jadwalbol.result[i].stasiuntv}\n`
+                const dataplai = await axios.get(`https://api.vhtear.com/jadwalbola&apikey=${vhtearkey}`)
+                const dataplay = dataplai.data.result
+                 let jadwalb = `*Jadwal Bola Hari Ini bozz*\n`
+                for (let i = 0; i < dataplay.data.length; i++) {
+                    jadwalb += `\n═════════════════\n\n*Kickoff* : ${dataplay.data[i].kickoff}\nPertandingan* : ${dataplay.data[i].pertandingan}\n*Stasiun tv* : ${dataplay.data[i].stasiuntv}\n`
                 }
-                await tobz.reply(from, jadwalbolaaa, id)
+                await tobz.sendFileFromUrl(from, jadwalb, id)
             }   catch (err){
                 console.log(err)
             }
