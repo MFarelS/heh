@@ -1811,7 +1811,7 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                     break
                     case `${prefix}ttp`:
                             if (!isRegis) return aksa.reply(dari, `Maaf ${pushname}, sepertinya kamu belum terdaftar sebagai user Lucya, untuk pendaftaran bisa menggunakan *!regis* |nama|no hp. Contoh: !regis |${pushname}|${serial.replace(/@c.us/g,'')}`, id)
-                            if (!isAdmin) return aksa.reply(dari, 'Mohon maaf anda tidak bisa menggunakan fitur premium!', id)
+                            //if (!isAdmin) return aksa.reply(dari, 'Mohon maaf anda tidak bisa menggunakan fitur premium!', id)
                             aksa.reply(dari, `*Tunggu!* Permintaan Anda sedang diproses \n\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n\n${donate()}`)
                             try
                             {
@@ -1853,6 +1853,7 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                                 console.log(error)
                             }
                         break
+                  
 
                     //maker menu--------------------------------------------------------------------------------------------------
 
@@ -1882,6 +1883,17 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                         aksa.reply(dari, mess.error.St, id)
                     }
                     break
+            case `${prefix}ttp2`:
+            if (!isRegis) return aksa.reply(dari, `Maaf ${pushname}, sepertinya kamu belum terdaftar sebagai user Lucya, untuk pendaftaran bisa menggunakan *!regis* |nama|no hp. Contoh: !regis |${pushname}|${serial.replace(/@c.us/g,'')}`, id)
+            if (args.length === 1) return aksa.reply(dari, `Kirim perintah *!ttp2 [ Teks ]*, contoh *!ttp2 Chika*`, id)
+            if (isLimit(serial)) return aksa.reply(dari, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik !limit Untuk Mengecek Kuota Limit Kamu`, id)
+
+                    await limitAdd(serial)
+            const ttp2t = body.slice(6)
+            const lttp2 = ["Orange","White","Green","Black","Purple","Red","Yellow","Blue","Navy","Grey","Magenta","Brown","Gold"]
+            const rttp2 = lttp2[Math.floor(Math.random() * (lttp2.length))]
+            await aksa.sendStickerfromUrl(from, `https://api.vhtear.com/textmaker?text=${ttp2t}&warna=${rttp2}&apikey=${vhtear}`)
+            break
                 case `${prefix}esticker`: //aksara
                     if (!isRegis) return aksa.reply(dari, `Maaf ${pushname}, sepertinya kamu belum terdaftar sebagai user Lucya, untuk pendaftaran bisa menggunakan *!regis* |nama|no hp. Contoh: !regis |${pushname}|${serial.replace(/@c.us/g,'')}`, id)
                     if (isLimit(serial)) return aksa.reply(dari, `Maaf ${pushname}, Kuota Limit Kamu Sudah Habis, Ketik !limit Untuk Mengecek Kuota Limit Kamu`, id)
@@ -3785,8 +3797,7 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                     } else {
                         const mentah = await aksa.checkNumberStatus(text) //VALIDATE WHATSAPP NUMBER
                         const hasill = mentah.canReceiveMessage ? `Sukses menambahkan nomer ke database\nTotal data nomer sekarang : *${pengirim.length}*` : false
-                        if (!hasill) return aksa.reply(dari, 'Nomor WhatsApp tidak valid [ Tidak terdaftar di WhatsApp ] atau gunakan 62 di awal bukan 0', id)
-                          {
+                        if (!hasill) return aksa.reply(dari, 'Nomor WhatsApp tidak valid [ Tidak terdaftar di WhatsApp ] atau gunakan 62 di awal bukan 0', id) {
                             pengirim.push(mentah.id._serialized)
                             fs.writeFileSync('./lib/user.json', JSON.stringify(pengirim))
                             aksa.sendText(dari, hasill)
@@ -3795,8 +3806,7 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                     break
                 case `${prefix}remove`: //menghapus nomor from database
                     if (!isOwner) return aksa.reply(dari, 'Fitur ini hanya dapat digunakan oleh Owner Lucya')
-                    if (args.length === 1) return aksa.reply(dari, 'Masukkan nomornya, *GUNAKAN AWALAN 62* contoh: 6281281817375')
-                     {
+                    if (args.length === 1) return aksa.reply(dari, 'Masukkan nomornya, *GUNAKAN AWALAN 62* contoh: 6281281817375') {
                         let inx = pengirim.indexOf(args[1] + '@c.us')
                         pengirim.splice(inx, 1)
                         fs.writeFileSync('./lib/user.json', JSON.stringify(pengirim))
