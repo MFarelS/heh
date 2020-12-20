@@ -3797,21 +3797,21 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                     } else {
                         const mentah = await aksa.checkNumberStatus(text) //VALIDATE WHATSAPP NUMBER
                         const hasill = mentah.canReceiveMessage ? `Sukses menambahkan nomer ke database\nTotal data nomer sekarang : *${pengirim.length}*` : false
-                        if (!hasill) return aksa.reply(dari, 'Nomor WhatsApp tidak valid [ Tidak terdaftar di WhatsApp ] atau gunakan 62 di awal bukan 0', id) {
+                        if (!hasill) return aksa.reply(dari, 'Nomor WhatsApp tidak valid [ Tidak terdaftar di WhatsApp ] atau gunakan 62 di awal bukan 0', id) 
                             pengirim.push(mentah.id._serialized)
                             fs.writeFileSync('./lib/user.json', JSON.stringify(pengirim))
                             aksa.sendText(dari, hasill)
-                    }
+                    
                   }
                     break
                 case `${prefix}remove`: //menghapus nomor from database
                     if (!isOwner) return aksa.reply(dari, 'Fitur ini hanya dapat digunakan oleh Owner Lucya')
-                    if (args.length === 1) return aksa.reply(dari, 'Masukkan nomornya, *GUNAKAN AWALAN 62* contoh: 6281281817375') {
+                    if (args.length === 1) return aksa.reply(dari, 'Masukkan nomornya, *GUNAKAN AWALAN 62* contoh: 6281281817375') 
                         let inx = pengirim.indexOf(args[1] + '@c.us')
                         pengirim.splice(inx, 1)
                         fs.writeFileSync('./lib/user.json', JSON.stringify(pengirim))
                         aksa.reply(dari, 'Sukses menghapus nomor from database', id)
-                    }
+                    
                     break
                 case `${prefix}listno`:
                     if (!isOwner) return aksa.reply(dari, 'Fitur ini hanya dapat digunakan oleh Owner Lucya')
