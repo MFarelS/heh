@@ -3789,9 +3789,7 @@ ${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}`.sli
                             pengirim.push(mentah.id._serialized)
                             fs.writeFileSync('./lib/user.json', JSON.stringify(pengirim))
                             aksa.sendText(dari, hasill)
-                        }
-                  }
-
+                    }}
                     break
                 case `${prefix}remove`: //menghapus nomor from database
                     if (!isOwner) return aksa.reply(dari, 'Fitur ini hanya dapat digunakan oleh Owner Lucya')
